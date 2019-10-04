@@ -21,18 +21,20 @@ for (var i = 0; i < 100; i++) {
 }*/
 
 /* chess board */
-let board = "", nextSymbol = "#", column = 0;
-for (let i = 0; i < 64; i++) {
-	board += nextSymbol;
-	if (column >= 7){
-		board += `\n${nextSymbol}`;
-		column = 1;
-	} else 	column++;
-	
-	if (nextSymbol === "#") 
-		nextSymbol = "_";
-	else nextSymbol = "#";
-
+let board = "", rowCount = 0, MAX = 8, startSymb = "#";
+for (let i = 0; i < MAX; i++) {
+	let newRow = "";
+	// form new row
+	for (let j = 0; j < MAX; j++) {
+		newRow += startSymb;
+		if (j === MAX - 1) 
+			newRow += "\n";
+		if (startSymb === "#")
+			startSymb = " ";
+		else startSymb = "#";
+	}
+	board += newRow;
+	startSymb = newRow[1];
 
 }
 console.log(board);
