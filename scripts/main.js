@@ -21,7 +21,16 @@ for (var i = 0; i < 100; i++) {
 }*/
 
 /* chess board */
-let board = "", rowCount = 0, MAX = 8, startSymb = "#";
+let board = "", rowCount = 0, MAX = null, startSymb = "#";
+while (!MAX){
+	MAX = prompt ("Input number from 2 to 55");
+	MAX = Number (MAX);
+	if (!isNaN(MAX) && MAX >=2 && MAX <=55) {
+		console.log("Correct input");
+		break;
+	}
+	MAX = null;
+}
 for (let i = 0; i < MAX; i++) {
 	let newRow = "";
 	// form new row
@@ -35,8 +44,8 @@ for (let i = 0; i < MAX; i++) {
 	}
 	board += newRow;
 	startSymb = newRow[1];
-
 }
+console.log(`Board's length is: ${MAX}`);
 console.log(board);
 
 /**/
