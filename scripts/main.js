@@ -20,7 +20,7 @@ for (var i = 0; i < 100; i++) {
 	msg++;
 }*/
 
-/* chess board */
+/* chess board 
 let board = "", rowCount = 0, MAX = null, startSymb = "#";
 while (!MAX){
 	MAX = prompt ("Input number from 2 to 55");
@@ -46,6 +46,19 @@ for (let i = 0; i < MAX; i++) {
 	startSymb = newRow[1];
 }
 console.log(`Board's length is: ${MAX}`);
-console.log(board);
+console.log(board);*/
 
-/**/
+/* recursion */
+function findSolution(target) {
+	let counter = 0;
+ function find(current, history) {
+ 	counter++;
+	if (current == target) {	
+		console.log(`Counter is: ${counter}`);
+		return history;}
+	else if (current > target) {return null;} 
+	else {return find(current + 5, `(${history} + 5)`) || find(current * 3, `(${history} * З)`);}
+ }
+ return find(1, "1");
+}
+console.log(findSolution(24));
